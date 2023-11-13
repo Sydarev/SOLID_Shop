@@ -9,10 +9,11 @@ import java.util.Map;
 //в дополнение, класс выполняет только те функции, для которых он предназначен (принцип единственной ответственности)
 //все поля класса закрыты для модификации извне, но сам класс открыт для расширения (принцип открытости/закрытости)
 public class Shop implements Basket, Display, Payment {
+    final int ZERO = 0;
 
-    private int wallet = 0;
+    private int wallet = ZERO;
     private Map<String, Integer> basket = new HashMap<>();
-    private int count = 0;
+    private int count = ZERO;
 
     //положить в корзину продукт определенной стоимости
     @Override
@@ -45,7 +46,7 @@ public class Shop implements Basket, Display, Payment {
             }
 
             System.out.println("Стоимость всех товаров в корзине составляет: " + count + " руб");
-            count = 0;
+            count = ZERO;
         }
     }
     //оплатить покупку
@@ -63,7 +64,7 @@ public class Shop implements Basket, Display, Payment {
                 wallet -= count;
                 basket.clear();
             }
-            count = 0;
+            count = ZERO;
             showBalance();
         }
     }
