@@ -3,17 +3,16 @@ package org.netology;
 import java.util.HashMap;
 import java.util.Map;
 
-//все возможности класса магазина распределены по небольшим интерфейсам (принцип сегрегации интерфейсов),
-//реализация класса магазина зависит от интерфейсов (принцип инверсии зависимостей)
-//также нет необходимости наследоваться и быть наследником (принцип Лисков)
-//в дополнение, класс выполняет только те функции, для которых он предназначен (принцип единственной ответственности)
-//все поля класса закрыты для модификации извне, но сам класс открыт для расширения (принцип открытости/закрытости)
 public class Shop implements Basket, Display, Payment {
     final int ZERO = 0;
 
     private int wallet = ZERO;
-    private Map<String, Integer> basket = new HashMap<>();
+    private Map<String, Integer> basket;
     private int count = ZERO;
+
+    public Shop(Map<String, Integer> basket){
+        this.basket = basket;
+    }
 
     //положить в корзину продукт определенной стоимости
     @Override

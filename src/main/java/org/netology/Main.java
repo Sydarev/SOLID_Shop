@@ -1,10 +1,11 @@
 package org.netology;
 
+import java.util.HashMap;
 import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
-        Shop customer = new Shop();
+        Shop customer = new Shop(new HashMap<>());
         Scanner scanner = new Scanner(System.in);
         int input;
         while (true) {
